@@ -11,32 +11,42 @@
             //myAccount.Withdraw(500);
             //Console.WriteLine($"Remaining Balance: {myAccount.Balance}");
 
-            //Task 2:
-            //create Car object
-            Car myCar = new Car("Toyota", 180, 5);
-            Motorcycle myMotorcycle = new Motorcycle("Honda", 150, 600);
+            ////Task 2:
+            ////create Car object
+            //Car myCar = new Car("Toyota", 180, 5);
+            //Motorcycle myMotorcycle = new Motorcycle("Honda", 150, 600);
 
 
-            //demostrate Car methods
-            Console.WriteLine("Car Information:");
-            myCar.Start();
-            myCar.DisplayCarInfo();
-            myCar.Stop();
+            ////demostrate Car methods
+            //Console.WriteLine("Car Information:");
+            //myCar.Start();
+            //myCar.DisplayCarInfo();
+            //myCar.Stop();
 
-            Console.WriteLine();
+            //Console.WriteLine();
 
-            //Demostrate Motorcycle
-            Console.WriteLine("Motorcycle Information:");
-            myMotorcycle.Start();
-            myMotorcycle.DisplayInfo();
-            myMotorcycle.Stop();
+            ////Demostrate Motorcycle
+            //Console.WriteLine("Motorcycle Information:");
+            //myMotorcycle.Start();
+            //myMotorcycle.DisplayInfo();
+            //myMotorcycle.Stop();
 
-            //Printer printer = new Printer();
-            //printer.Print("HI MY NAME IS KARUNA");
-            //printer.Print(52);
-            //printer.Print("this is workshop", 5);
+            //Task 3:--------------------------------
+            //---------polymorphism with method overloading---------
+            // Create Printer object
+            Printer myPrinter = new Printer();
 
+            // Call Print(string)
+            Console.WriteLine("=== Print(string) ===");
+            myPrinter.Print("My name is karuna Giri");
 
+            // Call Print(int)
+            Console.WriteLine("\n=== Print(int) ===");
+            myPrinter.Print(21);
+
+            // Call Print(string, int)
+            Console.WriteLine("\n=== Print(string, int) ===");
+            myPrinter.Print("Repeat this message", 2);
 
         }
     }
