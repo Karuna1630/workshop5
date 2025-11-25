@@ -31,22 +31,40 @@
             //myMotorcycle.DisplayInfo();
             //myMotorcycle.Stop();
 
-            //Task 3:--------------------------------
-            //---------polymorphism with method overloading---------
-            // Create Printer object
-            Printer myPrinter = new Printer();
+            ////Task 3:--------------------------------
+            ////---------polymorphism with method overloading---------
+            //// Create Printer object
+            //Printer myPrinter = new Printer();
 
-            // Call Print(string)
-            Console.WriteLine("=== Print(string) ===");
-            myPrinter.Print("My name is karuna Giri");
+            //// Call Print(string)
+            //Console.WriteLine("=== Print(string) ===");
+            //myPrinter.Print("My name is karuna Giri");
 
-            // Call Print(int)
-            Console.WriteLine("\n=== Print(int) ===");
-            myPrinter.Print(21);
+            //// Call Print(int)
+            //Console.WriteLine("\n=== Print(int) ===");
+            //myPrinter.Print(21);
 
-            // Call Print(string, int)
-            Console.WriteLine("\n=== Print(string, int) ===");
-            myPrinter.Print("Repeat this message", 2);
+            //// Call Print(string, int)
+            //Console.WriteLine("\n=== Print(string, int) ===");
+            //myPrinter.Print("Repeat this message", 2);
+
+            //Task 5
+            // Create an object of NepaliTeacher and pass name to constructor
+            NepaliTeacher nepali = new NepaliTeacher("Ram");
+            // Create an object of EnglishTeacher and pass name to constructor
+            EnglishTeacher english = new EnglishTeacher("John");
+
+            Console.WriteLine("--- Nepali Teacher ---");
+            // Calls the overridden Teaching() method from NepaliTeacher class
+            nepali.Teaching();
+            // Calls SalaryInfo() method (inherited from Teacher and cannot be overridden)
+            nepali.SalaryInfo();
+
+            Console.WriteLine("\n--- English Teacher ---");
+            // EnglishTeacher does NOT override Teaching(), so parent class method runs
+            english.Teaching();   // Uses base class method
+            // SalaryInfo() is inherited from Teacher class
+            english.SalaryInfo();
 
         }
     }
