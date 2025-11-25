@@ -8,72 +8,64 @@ namespace workshop5
 {
     internal class BankAccount
     {
+        //creating private fields
         private string accountNumber;
-        private double balance;
+        private decimal balance;
 
-         public string AccountNumber
+        //creating public properties 
+        public string AccountNumber
          {
-            get { return this.accountNumber; }
+            get { return accountNumber; }
          }
-        public double Balance
+
+        //Balance with a condition and setter is private 
+        public decimal Balance
         {
-            get { return this.balance; }
+            get { return balance; }
             private set
             {
-                if (value <= 0)
+                //validating that balance is greater than 0
+                if (value > 0)
                 {
-                     Console.WriteLine("Balance must be positive.");
+                    balance = value;
                 }
                 else
                 {
-                    this.balance = value;
+                   throw new ArgumentException("Balance must be greater than 0.");
                 }
-            }
-        } 
-        public BankAccount(string accountNumber, double initialBalance)
-        {
-            this.accountNumber = accountNumber;
-            if(initialBalance <= 0)
-            {
-                Console.WriteLine("Initial balance must be positive. Setting balance to 0.");
-                this.balance = 0;
-            }
-            else
-            {
-                this.balance = initialBalance;
             }
         }
 
-        public void Deposit(double amount)
+        //Method for depositing money into the account
+        public void Deposit(decimal amount)
         {
-            if (amount >= 0)
+            //account must be positive
+            if (amount > 0)
             {
-                this.Balance += amount;
-                Console.WriteLine($"Deposited: {amount}");
+                //adding amount to balance
+                Balance += amount;
+               
             }
             else
             {
                
-                Console.WriteLine($"Deposited must be greater than 0");
+               throw new ArgumentException("Deposit amount must be greater than 0.");
             }
         }
 
-
-        public void Withdraw(double amount)
+        //Method for withdrawing money from the account
+        public void Withdraw(decimal amount)
         {
-            if (amount <= 0)
+            //amount must be positive and less than or equal to balance
+            if (amount > 0 && amount <= Balance)
             {
-                Console.WriteLine("Withdraw amount must be greater than 0.");
+                Balance -= amount;
             }
-            else if (amount > this.Balance)
+            else 
             {
-                Console.WriteLine("Insufficient funds.");
+              throw new ArgumentException("Withdrawal amount must be greater than 0 and less than or equal to the current balance.");
             }
-            else
-            {
-                this.Balance -= amount;
-                Console.WriteLine($"Withdrew: {amount}");
-            }
+           
         }
     }
 
